@@ -143,6 +143,7 @@ resource "aws_instance" "jenkins" {
   # Update package metadata and install packages
   sudo yum clean all
   sudo yum update -y
+  sudo yum install -y git wget curl
 
   # Install Docker
   sudo yum install -y docker
