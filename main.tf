@@ -153,7 +153,7 @@ resource "aws_instance" "jenkins" {
   sudo usermod -aG docker ec2-user
   sudo usermod -aG docker jenkins
 
-  
+
   # Install Amazon Corretto 21 Java
   sudo yum install -y java-21-amazon-corretto
 
@@ -172,6 +172,7 @@ resource "aws_instance" "jenkins" {
   sudo systemctl start jenkins
 
   # Restart Jenkins after adding to Docker group
+  sudo systemctl daemon-reexec
   sudo systemctl restart jenkins
   EOF
 
