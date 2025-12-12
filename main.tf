@@ -148,7 +148,10 @@ resource "aws_instance" "jenkins" {
   sudo yum install -y docker
   sudo systemctl enable docker
   sudo systemctl start docker
+
+  # Add ec2-user and jenkins to Docker group
   sudo usermod -aG docker ec2-user
+  sudo usermod -aG docker jenkins
 
   # Install Amazon Corretto 21 Java
   sudo yum install -y java-21-amazon-corretto
@@ -158,9 +161,6 @@ resource "aws_instance" "jenkins" {
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
   sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
- 
-  # Add jenkins user to docker group
-  usermod -aG docker jenkins
 
   # Refresh and install Jenkins
     sudo yum update -y
