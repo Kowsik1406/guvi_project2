@@ -159,10 +159,13 @@ resource "aws_instance" "jenkins" {
 
   sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
  
+  # Add jenkins user to docker group
+  usermod -aG docker jenkins
+
   # Refresh and install Jenkins
     sudo yum update -y
     sudo yum install -y jenkins
-
+  
   # Enable and start Jenkins
   sudo systemctl enable jenkins
   sudo systemctl start jenkins
