@@ -168,9 +168,8 @@ resource "aws_instance" "jenkins" {
   sudo yum install -y jenkins
 
   # Restart Jenkins after adding to Docker group
-  sudo systemctl daemon-reexec
-  sudo systemctl restart jenkins
   sudo systemctl enable jenkins
+  sudo systemctl start jenkins
   EOF
 
   tags = {
