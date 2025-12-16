@@ -11,8 +11,10 @@ pipeline {
                 sh 'docker build -t vikram140602/trend-app:latest .'
             }
         }
+        
         stage("Push Docker Image") {
             steps {
+                sh 'docker login -u vikram140602 -p $pswd'
                 sh 'docker push vikram140602/trend-app:latest'
             }
         }
