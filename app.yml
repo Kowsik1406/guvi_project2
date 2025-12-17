@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: guvi-react-app2-container
-        image: <Image>
+        image: vikram140602/trend-app
         ports:
         - containerPort: 80
 
