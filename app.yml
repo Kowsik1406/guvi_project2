@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guvi-react-app2-deployment
+  name: guvi-react-app2
   labels:
     app: guvi-app2
 spec:
@@ -15,24 +15,21 @@ spec:
         app: guvi-app2
     spec:
       containers:
-      - name: guvi-react-app2-container
-        image: vikram140602/trend-app
-        ports:
-        - containerPort: 80
+        - name: guvi-react-app2
+          image: vikram140602/trend-app:latest
+          ports:
+            - containerPort: 80
 
 ---
-
-apiVersion: v1 
+apiVersion: v1
 kind: Service
 metadata:
-  name: guvi-react-app2-service
+  name: guvi-react-app2
+spec:
+  type: LoadBalancer
   selector:
     app: guvi-app2
-  spec:
-    type: LoadBalancer
-    selector: 
-      app: guvi-app2            # must match labels in Deployment’s podTemplate
   ports:
-   - protocol: TCP
-     port: 80                   # external LB port (e.g. http port)
-     targetPort: 80             # matches containerPort in Deployment
+    - protocol: TCP
+      port: 80        # External LoadBalancer port
+      targetPort: 80  # Container port
