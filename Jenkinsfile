@@ -22,7 +22,7 @@ pipeline {
             steps {
               script {
                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS']]) {
-                sh 'aws eks update-kubeconfig --region ap-south-1 --name guvi-eks-cluster'
+                sh 'aws eks update-kubeconfig --region ap-south-1 --name trend'
                 sh 'kubectl apply -f app.yml'
                 sh 'kubectl get svc'
                }
