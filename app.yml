@@ -1,4 +1,4 @@
-appversion: apps/v1
+apiversion: apps/v1
 kind: Deployment
 metadata:
   name: guvi-react-app2-deployment
@@ -22,7 +22,7 @@ spec:
 
 ---
 
-appversion: v1 
+apiversion: v1 
 kind: Service
 metadata:
   name: guvi-react-app2-service
