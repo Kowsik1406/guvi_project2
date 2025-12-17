@@ -25,6 +25,7 @@ pipeline {
                 sh 'aws eks update-kubeconfig --region ap-south-1 --name guvi-eks-cluster'
                 sh 'kubectl apply -f app.yml'
                }
+              }
             }
         }
     }
