@@ -28,7 +28,7 @@ Write the dockerfile,app.yml and terraform (main.tf) file
 
 -----> Delete cluster ( in case of any issue )
 
-        eksctl delete cluster --name guvi-eks-cluster --region ap-south-1
+        eksctl delete cluster --name trend --region ap-south-1
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -39,6 +39,7 @@ Write the dockerfile,app.yml and terraform (main.tf) file
     go to configure in jenkins and choose pipeline script from SCM
     give the repository url
     add the git credentials ( not required if public repo)
+    add the aws credentials ( accesskey & secretaccesskey as pswd)
 
 7. Once the build is succeed then go to ec2 and type kubectl get svc 
 
@@ -80,3 +81,8 @@ Write the dockerfile,app.yml and terraform (main.tf) file
     Then go to datasource and enable Prometheus to load data from Prometheus by giving any dashboard like ( 15661,1860 then load and execute )by importing it.
 
 ----> Uninstall helm (helm uninstall prometheus) in case of any issue
+----> helm uninstall prometheus
+----> helm uninstall grafana
+----> kubectl delete svc prometheus-server-ext
+----> kubectl delete svc grafana-ext
+
