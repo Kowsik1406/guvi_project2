@@ -128,7 +128,7 @@ resource "aws_security_group" "allow_ports_sg" {
 # EC2 Instance (Jenkins)
 ############################
 
-resource "aws_instance" "jenkins" {
+resource "aws_instance" "trend" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public_subnet.id
@@ -154,7 +154,6 @@ resource "aws_instance" "jenkins" {
   sudo usermod -aG docker ec2-user
   sudo usermod -aG docker jenkins
 
-
   # Install Amazon Corretto 21 Java
   sudo yum install -y java-21-amazon-corretto
 
@@ -177,7 +176,7 @@ resource "aws_instance" "jenkins" {
   EOF
 
   tags = {
-    Name = "jenkins-server"
+    Name = "trend-server"
   }
 }
 

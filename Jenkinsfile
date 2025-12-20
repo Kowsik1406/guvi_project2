@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Build Docker Image") {
             steps {
-                sh 'docker build -t vikram140602/trend-app:latest .'
+                sh 'docker build -t vikram140602/trend-image:latest .'
             }
         }
         
