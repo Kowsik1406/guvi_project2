@@ -26,6 +26,11 @@ Write the dockerfile,app.yml and terraform (main.tf) file
         --region ap-south-1 \
         --node-type t2.medium
 
+-----> Delete cluster ( in case of any issue )
+
+        eksctl delete cluster --name guvi-eks-cluster --region ap-south-1
+
+
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 6. Access jenkins using public ip of EC2 instance by enabling port 8080 in inbound rule of Security Group
@@ -72,6 +77,6 @@ Write the dockerfile,app.yml and terraform (main.tf) file
     you'll get pswd 
 
     then finish the remaining step and edit inbound rule and expose in new tab as same as Prometheus 
-    Then go to datasource and enable Prometheus to load data from Prometheus by giving any dashboard like ( 15661,1860 then load and execute )by importing it. 
+    Then go to datasource and enable Prometheus to load data from Prometheus by giving any dashboard like ( 15661,1860 then load and execute )by importing it.
 
-
+----> Uninstall helm (helm uninstall prometheus) in case of any issue
