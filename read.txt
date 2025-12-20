@@ -1,0 +1,8 @@
+Write dockerfile
+write terraform file with main.tf,variable.tf,output.tf 
+write jenkinsfile 
+In credentials  ( add git credentials, add acceskey, secret accesskey)
+
+
+In EC2 - aws configure ( enter accesskey, secretaccesskey)
+Install eks using ( eks command.txt file )
